@@ -1,31 +1,27 @@
-import './styles/App.css'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 
+
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './C_Navbar/Navbar'
+import { HomePage } from './Components/Home';
+import { AddEmp } from './Components/AddEmp';
+import { UserFeedback } from './Components/UserFeedback';
 
 function App() {
-    let [data, setData]= useState([])
 
-    useEffect(()=>{
-        axios.get('http://localhost:5000')
-        .then((res)=>setData(res.data))
-        
-    },[])
+  return (
+    <>
+  
+  <Router>
+    <Navbar/>
+    <Routes>
+      <Route path='/' element={<HomePage/>} />
+      <Route path='/AddEmp' element={<AddEmp/>} />
+      <Route path='/UserFeedback' element={<UserFeedback/>}/>
+    </Routes>
+  </Router>
 
- return (
-  <div>
-
-    {
-        data.map((ele, i)=>{
-            return (
-                <h2 key={i}> {ele.name}***********{ele.subject}</h2>
-            )
-        })
-    }
-
-
-  </div>
- )
+    </>
+  )
 }
 
 export default App
