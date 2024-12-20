@@ -1,0 +1,124 @@
+.card {
+    position: relative; /* Ensure favorite button is positioned relative to card */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 10px;
+    flex: 1 1 calc(25% - 20px); /* Responsive for 4 cards per row */
+    max-width: calc(25% - 20px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-fav-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #ff4d4f;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.card-fav-button:hover {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.card-rating .rating-star {
+    color: #ffc107;
+    font-size: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-location {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-pricing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card-pricing .strike-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.card-pricing .discounted-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.card-pricing .total-price {
+    font-size: 14px;
+    color: #333;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Container for responsive layout */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+}
