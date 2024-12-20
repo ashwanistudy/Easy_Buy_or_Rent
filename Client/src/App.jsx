@@ -5,8 +5,7 @@ import Navbar from './C_Navbar/Navbar'
 import { AddEmp } from './Components/AddEmp';
 import { UserFeedback } from './Components/UserFeedback';
 import Footer1 from './footer1/Footer1';
-import AuthPage from './Components/Authentication';
-import {useEffect, useState} from  'react'
+import {useEffect, useState} from  'react';
 import CardPage from './Components/CardPage'; 
 import AboutUs from './Components/AboutUs';
 import { Login } from './Components/Longin';
