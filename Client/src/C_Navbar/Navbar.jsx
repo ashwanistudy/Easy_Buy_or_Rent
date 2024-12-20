@@ -34,12 +34,12 @@ function Navbar(){
      </div>
 
      </nav> 
-     <div className="Loginlogo" ><Link to='/Sign up page' >Login 😊 </Link></div>
+     <div className="Loginlogo" ><Link to='/Login' >Login 😊 </Link></div>
      </div>
     
      </div>
     </div>
-
+ 
 
        </>
 
