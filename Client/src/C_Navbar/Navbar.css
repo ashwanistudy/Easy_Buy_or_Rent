@@ -1,5 +1,6 @@
 
 body{
+    background-color: #dee0f0;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -16,13 +17,20 @@ body{
 
   #innerNav {
     width: 90%;
-    height: 100px;  
+    height: 70px;  
+    /* position: fixed; */
     /* background-color: yellow; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
+    padding: 40px;
   }
+
+  #innerNav img{
+    height: 80px;
+    width: 100px;
+  }
+
 
   nav {
     display: flex;
@@ -32,12 +40,12 @@ body{
     width: 70%;
     height: 60%;
     border-radius: 50px;
-    border: 1px solid white;
+    border: 1px solid rgb(203, 171, 13);
    
   }
   a{
     text-decoration: none;
-  color: white;
+  color: rgb(208, 226, 9);
   font-weight: bold;
   font-size: 16px;
   }
@@ -80,8 +88,14 @@ body{
 }
 
   .watermark-div{
-    background-image: url('https://static.vecteezy.com/system/resources/previews/050/811/259/non_2x/a-large-house-with-a-lot-of-windows-and-a-porch-the-house-is-surrounded-by-trees-and-has-a-lot-of-leaves-on-the-ground-photo.jpg');
+    background-image: url('https://wallpapers.com/images/featured/house-u7pcf18vqolaatio.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center center;
+  }
+
+  .Loginlogo{
+   border: 1px solid white;
+   padding: 10px;
+   border-radius: 30px;
   }

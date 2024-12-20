@@ -90,7 +90,7 @@ button:hover {
 .feedback-list ul {
     list-style-type: none;
     
-}
+    }
 
 .feedback-list li {
     margin-bottom: 10px;
@@ -111,4 +111,10 @@ button:hover {
     color: #ffcc00;
     margin-right: 8px;
     font-size: 22px;
+}
+
+#subscibe{
+    height: 600px;
+    width: 100%;
+    border: 1px solid black;
 }

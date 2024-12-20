@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "name": "3 BH Poolside Living Room with Garden View",
+    "location": "Mumbai",
+    "price": 42000,
+    "strike_price": 50000,
+    "rating": 4.5,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 2,
+    "name": "2 BH Modern Living Room with Rooftop Pool",
+    "location": "Delhi",
+    "price": 35000,
+    "strike_price": 40000,
+    "rating": 4.7,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 3,
+    "name": "3 BH Cozy Pool with Private Balcony",
+    "location": "Bangalore",
+    "price": 39000,
+    "strike_price": 45000,
+    "rating": 4.6,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 4,
+    "name": "2 BH Rustic Living Room with Open Terrace",
+    "location": "Pune",
+    "price": 30000,
+    "strike_price": 35000,
+    "rating": 4.4,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 5,
+    "name": "4 BH Luxury Poolside with Home Theater",
+    "location": "Chennai",
+    "price": 60000,
+    "strike_price": 70000,
+    "rating": 4.8,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 6,
+    "name": "3 BH Vintage Pool with Library Space",
+    "location": "Hyderabad",
+    "price": 45000,
+    "strike_price": 55000,
+    "rating": 4.5,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 7,
+    "name": "1 BH Compact Living Room with City View",
+    "location": "Kolkata",
+    "price": 25000,
+    "strike_price": 30000,
+    "rating": 4.2,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 8,
+    "name": "3 BH Modern Pool with Entertainment Zone",
+    "location": "Ahmedabad",
+    "price": 47000,
+    "strike_price": 55000,
+    "rating": 4.6,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 9,
+    "name": "2 BH Cozy Living Room with Wooden Decor",
+    "location": "Jaipur",
+    "price": 28000,
+    "strike_price": 33000,
+    "rating": 4.3,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 10,
+    "name": "4 BH Spacious Pool with Sauna Facility",
+    "location": "Lucknow",
+    "price": 55000,
+    "strike_price": 70000,
+    "rating": 4.7,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 11,
+    "name": "2 BH Elegant Poolside with Study Room",
+    "location": "Surat",
+    "price": 32000,
+    "strike_price": 35000,
+    "rating": 4.4,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 12,
+    "name": "3 BH Urban Living Room with Open Kitchen",
+    "location": "Nagpur",
+    "price": 36000,
+    "strike_price": 42000,
+    "rating": 4.5,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 13,
+    "name": "3 BH Beachside Pool with Lounge Area",
+    "location": "Visakhapatnam",
+    "price": 49000,
+    "strike_price": 60000,
+    "rating": 4.8,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 14,
+    "name": "1 BH Minimalist Living Room with Garden",
+    "location": "Kanpur",
+    "price": 22000,
+    "strike_price": 25000,
+    "rating": 4.1,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 15,
+    "name": "2 BH Cozy Pool with Outdoor Dining",
+    "location": "Thane",
+    "price": 31000,
+    "strike_price": 35000,
+    "rating": 4.4,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 16,
+    "name": "3 BH Artistic Living Room with Skylights",
+    "location": "Indore",
+    "price": 40000,
+    "strike_price": 47000,
+    "rating": 4.6,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 17,
+    "name": "4 BH Regal Poolside with Private Gym",
+    "location": "Patna",
+    "price": 52000,
+    "strike_price": 60000,
+    "rating": 4.7,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  },
+  {
+    "id": 18,
+    "name": "2 BH Vintage Living Room with Fireplace",
+    "location": "Vadodara",
+    "price": 34000,
+    "strike_price": 40000,
+    "rating": 4.5,
+    "image": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=pexels-binyaminmellish-1396122.jpg&fm=jpg"
+  }
+]

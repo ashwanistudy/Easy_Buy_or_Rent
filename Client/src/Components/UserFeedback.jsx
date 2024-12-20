@@ -5,6 +5,7 @@ import '../styling/UserFeedback.css';
 
 export function UserFeedback(){
     const [feedbackData, setFeedbackData] = useState({
+        name:"",
         rating: 0,
         comments: ""    
     });
@@ -26,7 +27,8 @@ export function UserFeedback(){
         e.preventDefault();
         try {
             await axios.post("https://shre-5279e-default-rtdb.firebaseio.com/UserFeedback.json", feedbackData);
-            setFeedbackData({ rating: 0, comments: "" });
+            setFeedbackData({name:"", rating: 0, comments: "" });
+            alert("feedback succesfuly submited")
         } catch (error) {
             console.log("error", error);
         }
@@ -56,6 +58,16 @@ export function UserFeedback(){
         <div className="feedback-container">
             <h2>Give Us Your Feedback</h2>
             <form onSubmit={handleSubmit}>
+
+            <label>Name</label>
+                <input
+                    name="name"
+                    value={feedbackData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    required
+                />
+
                 <label>Rating (1 to 5)</label>
                 <div className="stars">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -65,7 +77,7 @@ export function UserFeedback(){
                             onClick={() => handleRating(star)}
                             required
                         >
-                            ★
+                            ★    
                         </span>
                     ))}
                 </div>
@@ -88,6 +100,7 @@ export function UserFeedback(){
                 <ul>
                     {allFeedback.map((feedback) => (
                         <li key={feedback.id}>
+                              <strong>Name:</strong> {feedback.name}<br />
                             <strong>Rating:</strong> {feedback.rating} / 5<br />
                             <strong>Comments:</strong> {feedback.comments}
                         </li>

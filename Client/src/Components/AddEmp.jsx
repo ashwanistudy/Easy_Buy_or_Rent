@@ -36,6 +36,7 @@ export const AddEmp=()=>{
       address :"",
       location :"" ,
       message : ""  
+
        }
        )
        setopen(!isopen)
@@ -136,6 +137,11 @@ export const AddEmp=()=>{
         : ""
           
        }
+
+<div id="subscibe">
+
+</div>
+
 
         
         </>

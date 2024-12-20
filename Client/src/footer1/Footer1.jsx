@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer1 = () => {
   return (
-    <footer style={{ backgroundColor: "#2c3e50", color: "#ecf0f1", padding: "20px 0" }}>
+    <footer style={{ backgroundColor: "#2c3e50", color: "#ecf0f1", padding: "20px 0", }}>
       <div
         style={{
           maxWidth: "1200px",
