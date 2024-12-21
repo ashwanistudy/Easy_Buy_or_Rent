@@ -1,87 +1,136 @@
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import { useRef, useState } from "react"
+
 
 export const Signup = () => {
+
     let navigate = useNavigate()
     let debounce
+    let [signupForm, setSignupForm] = useState(true)
+    let signupRef = useRef()
 
-    function handlesubmit(e){
-        e.preventDefault()
-        clearTimeout(debounce)
-        debounce=setTimeout(()=>{
-            fun(e)
-        }, 2000)
+    function handlesignupRef() {
+        if (signupRef.current.value == "user") {
+            setSignupForm(true)
+        } else {
+            setSignupForm(false)
+        }
     }
 
+    function handlesubmit(e) {
+        e.preventDefault()
+        clearTimeout(debounce)
+        debounce = setTimeout(() => {
+            fun(e)
+        }, 500)
+    }
 
-    async function fun(e){
-        let toto=true
-        let res = await axios.get(`https://ashwani-first-db-default-rtdb.firebaseio.com/Users.json`)
-        if (res.data==null){
-            toto=true
-        }else{
-            let email = e.target[0].value
-                Object.values(res.data).forEach((ele)=>{
-                    if(ele.email == email){
-                        toto=false
-                        return 
-                    }
-                })
+    async function fun(e) {
+        let toto = true
+        let res = await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
+        if (res.data == null) {
+            toto = true
+        } else {
+            let email = e.target[2].value
+            console.log(email)
+            Object.values(res.data).forEach((ele) => {
+                if (ele.email == email) {
+                    toto = false
+                    return
+                }
+            })
         }
 
-        if (toto){
-            let val=e.target
-            let obj = {
-                email:val[0].value,
-                password:val[1].value,
+        if (toto) {
+            let obj
+            let val = e.target
+            let userId = Math.ceil(Math.random() * 100000000 + 1)
+            if (signupForm) {
+                    obj = {
+                    isBusinessOwner: false,
+                    name: val[1].value,
+                    email: val[2].value,
+                    password: val[3].value,
+                    userId
+                }
+            } 
+            else {
+                    obj = {
+                    isBusinessOwner: true,
+                    name: val[1].value,
+                    email: val[2].value,
+                    password: val[3].value,
+                    propertyName: val[4].value,
+                    location: val[5].value,
+                    address: val[6].value,
+                    price: val[7].value,
+                    message: val[8].value,
+                    userId
+                }
             }
-    
-            let userId = Math.ceil(Math.random() * 10000 +1)
-            obj.userId=userId
-    
-            if(val[2].value == "businessOwner"){
-                obj.isBusinessOwner=true
-                
-                axios.put(`https://ashwani-first-db-default-rtdb.firebaseio.com/Users/${userId}.json`, obj)
-                .then((res)=>{
+            axios.put(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users/${userId}.json`, obj)
+                .then((res) => {
                     alert("Sign Up Successfull")
                     navigate('/Login')
                 })
-    
-            }else{
-                obj.isBusinessOwner=false
-                axios.put(`https://ashwani-first-db-default-rtdb.firebaseio.com/Users/${userId}.json`, obj)
-                .then((res)=>{
-                    alert("Sign Up Successfull")
-                    navigate('/Login')
-                })
-            }
-        }else{
+        } 
+        else {
             alert("User Already exist")
         }
-
     }
 
     return (<>
-    <form onSubmit={handlesubmit}>
-        <h2>SignUp using Email</h2>
-       
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" placeholder="study@gmail.com"/>
-        <label htmlFor="pass">Password:</label>
-        <input type="password" id="pass" placeholder="Min(4) max(8)"/>
-        
-        <select required>
-            <option value="">Select user Type</option>
-            <option value="businessOwner">Business Provider</option>
-            <option value="user">User</option>
-        </select><br /><br />
+        <form onSubmit={handlesubmit}>
+            <h2>SignUp using Email</h2>
+            <select required ref={signupRef} onChange={handlesignupRef}>
+                <option value="user">Select user Type</option>
+                <option value="businessOwner">Business Provider</option>
+                <option value="user">User</option>
+            </select><br /><br />
 
-        <button>Submit</button><br />
-         <span>Already have an account</span> <a style={{color:'blue'}}><button type="button" onClick={()=>navigate('/Login')}>Login</button></a>
-    </form>
+            {
+                signupForm ? (<>
+                    <label htmlFor="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Ashwani Kumar" required />
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" id="email" placeholder="study@gmail.com" required/>
+                    <label htmlFor="pass">Password:</label>
+                    <input type="password" id="pass" placeholder="upto 8 char" minLength={4} maxLength={8} required/>
+                </>)
+                    : (<>
+                        <label htmlFor="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Ashwani Kumar" required/>
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" id="email" placeholder="study@gmail.com" required/>
+                        <label htmlFor="pass">Password:</label>
+                        <input type="password" id="pass" placeholder="upto 8 char" minLength={4} maxLength={8} required/>
+                        <label htmlFor="property">Property name: </label>
+                        <input type="text" id="property" placeholder="villa, 2BHK, 3BHK, 1RK" required/>
+                        <label htmlFor="location">Location:</label>
+                        <input type="text" id="location" placeholder="U.P 201306" required/>
+                        <label htmlFor="address">Address:</label>
+                        <input type="text" id="address" placeholder="Noida sector 167" required/>
+                        <label htmlFor="price">Price(INR):</label>
+                        <input type="text" id="price" placeholder="2000102" required/>
+                        <label htmlFor="message">Message:</label>
+                        <input type="text" id="message" placeholder="Sale or Rent" required/>
+                    </>)
+            }
+
+
+
+
+
+            <button>Submit</button><br />
+            <span>Already have an account</span> <a style={{ color: 'blue' }}><button type="button" onClick={() => navigate('/Login')}>Login</button></a>
+        </form>
 
 
     </>)
 }
+
+
+
+
 

@@ -16,15 +16,16 @@ export const Login = () => {
         }, 2000)
     }
 
-
     async function fun(e){
         let toto=false
-        await axios.get(`https://ashwani-first-db-default-rtdb.firebaseio.com/Users.json`)
+        let obj
+        await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
             .then((res)=>{
                 let email = e.target[0].value
                 let pass = e.target[1].value
                 Object.values(res.data).forEach((ele)=>{
                     if(ele.email == email && ele.password == pass ){
+                        obj= ele
                         toto=true
                         return 
                     }
@@ -32,6 +33,7 @@ export const Login = () => {
         })
         if(toto){
            alert("Login Successfull")
+           localStorage.setItem("localUser", JSON.stringify(obj))
            navigate('/')
         }else{
             alert("Login Error")

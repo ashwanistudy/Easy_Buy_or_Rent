@@ -163,9 +163,9 @@ export const AddEmp = () => {
 
 
 <div className="termsAndConditions">
-      <span1> Before posting a property please read the term & conditions <button className="tcbut" onClick={() => setTnCVisible(!isTnCVisible)}>
+      <span> Before posting a property please read the term & conditions <button className="tcbut" onClick={() => setTnCVisible(!isTnCVisible)}>
           {isTnCVisible ? "Hide Terms and Conditions 🔴" : "Show Terms and Conditions 🟢"}
-        </button></span1>
+        </button></span>
         </div>
 {isTnCVisible && (
           
