@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../MyCard/Card.css';
+import { useSelector } from 'react-redux';
 
 
 
 function CardPage({ title, beds, baths, bedrooms }) {
+
+const Home_Page_Data = useSelector((state)=>state.HomePageData)
 
   
 const [listings, setListings] = useState([]);
@@ -106,7 +109,7 @@ return (
 
 {/* all cards in cards conatiner */}
    <div className="bodyContainer">
-      {listings.map((listing) => (
+      {Home_Page_Data.map((listing) => (
   
       <div className="card" key={listing.id} >
           

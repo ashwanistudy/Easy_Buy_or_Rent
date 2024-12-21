@@ -1,36 +1,50 @@
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import { useSelector } from "react-redux"
 
 
 
 export const Login = () => {
+    const LoginUserData = useSelector((state)=>state.UserData)
     let navigate = useNavigate()
     let debounce
-
 
     function handlesubmit(e){
         e.preventDefault()
         clearTimeout(debounce)
         debounce=setTimeout(()=>{
             fun(e)
-        }, 2000)
+        }, 1000)
     }
 
     async function fun(e){
         let toto=false
         let obj
-        await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
-            .then((res)=>{
-                let email = e.target[0].value
-                let pass = e.target[1].value
-                Object.values(res.data).forEach((ele)=>{
-                    if(ele.email == email && ele.password == pass ){
-                        obj= ele
-                        toto=true
-                        return 
-                    }
-                })
+        let email = e.target[0].value
+        let pass = e.target[1].value
+        
+        LoginUserData.forEach((ele)=>{
+            if(ele.email == email && ele.password == pass ){
+                obj = ele
+                toto = true
+            }
         })
+
+        // await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
+        //     .then((res)=>{
+        //         let email = e.target[0].value
+        //         let pass = e.target[1].value
+        //         Object.values(res.data).forEach((ele)=>{
+        //             if(ele.email == email && ele.password == pass ){
+        //                 obj= ele
+        //                 toto=true
+        //                 return 
+        //             }
+        //         })
+        // })
+
+
+        
         if(toto){
            alert("Login Successfull")
            localStorage.setItem("localUser", JSON.stringify(obj))

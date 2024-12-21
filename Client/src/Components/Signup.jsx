@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useRef, useState } from "react"
-
+import { useDispatch, useSelector } from "react-redux"
+import { Add_User_Data } from "../Redux/action"
 
 export const Signup = () => {
-
+    const SignupUserData = useSelector((state)=>state.UserData)
+    const dispatch =useDispatch()
+    
     let navigate = useNavigate()
     let debounce
     let [signupForm, setSignupForm] = useState(true)
@@ -28,18 +31,18 @@ export const Signup = () => {
 
     async function fun(e) {
         let toto = true
-        let res = await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
-        if (res.data == null) {
+        // let res = await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
+
+        if (SignupUserData.length == 0) {
             toto = true
         } else {
             let email = e.target[2].value
-            console.log(email)
-            Object.values(res.data).forEach((ele) => {
+            SignupUserData.forEach((ele) => {
                 if (ele.email == email) {
                     toto = false
                     return
                 }
-            })
+            }) 
         }
 
         if (toto) {
@@ -72,6 +75,7 @@ export const Signup = () => {
             axios.put(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users/${userId}.json`, obj)
                 .then((res) => {
                     alert("Sign Up Successfull")
+                    dispatch(Add_User_Data(obj))
                     navigate('/Login')
                 })
         } 
