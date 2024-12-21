@@ -8,58 +8,56 @@ import { useSelector } from 'react-redux';
 function CardPage({ title, beds, baths, bedrooms }) {
 
 const Home_Page_Data = useSelector((state)=>state.HomePageData)
-
   
 const [listings, setListings] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
-const [filterdata , setfilterdata] = useState("") 
+// const [loading, setLoading] = useState(true);
+// const [error, setError] = useState(null);
+// const [filterdata , setfilterdata] = useState("") 
 const [selectedCard, setSelectedCard] = useState(null);
 const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 
 // fetching data all cards 
 
-
-const fetchCards = async () => {
-  try {
-    const response = await axios.get(
-      'https://shre-5279e-default-rtdb.firebaseio.com/cards.json'
-    );
-    if (response.data) {
-      const formattedData = Object.entries(response.data)
-        .map(([id, data]) => ({
-          id,
-          ...data,
-        }))
+// const fetchCards = async () => {
+  // try {
+  //   const response = await axios.get(
+  //     'https://shre-5279e-default-rtdb.firebaseio.com/cards.json'
+  //   );
+  //   if (response.data) {
+  //     const formattedData = Object.entries(response.data)
+  //       .map(([id, data]) => ({
+  //         id,
+  //         ...data,
+  //       }))
         
-      setListings(formattedData);
-      setfilterdata(formattedData);
-    }
-  } catch (error) {
-    setError('Failed to load cards. Please try again later.');
-    console.error('Error fetching cards:', error);
-  } finally {
-    setLoading(false);
-  }
-};
+  //     setListings(formattedData);
+  //     setfilterdata(formattedData);
+  //   }
+  // } catch (error) {
+  //   setError('Failed to load cards. Please try again later.');
+  //   console.error('Error fetching cards:', error);
+  // } finally {
+  //   setLoading(false);
+  // }
+  
+// };
 
 // searching function 
 
 function HandleSearch(e) {
+  
   const searchtext = e.target.value.toLowerCase();
   if (searchtext === "") {
-    setListings(filterdata);
+    setListings(Home_Page_Data);
   } else {
-    const searchdata = filterdata.filter((ele) =>
-      ele.name.toLowerCase().includes(searchtext) || 
-    ele.location.toLowerCase().includes(searchtext) 
-  
-    );
+    const searchdata = Home_Page_Data.filter((ele) =>{
+      let name = ele.name || ele.propertyName
+     return name.toLowerCase().includes(searchtext) || ele.location.toLowerCase().includes(searchtext) 
+    });
     setListings(searchdata);
   }
 }
-
 
  function viewAllDetails(card) {
   setSelectedCard(card); 
@@ -71,14 +69,11 @@ function closePopup() {
   setSelectedCard(null);
 }
 
-
-
-
-
 useEffect(() => {
-  fetchCards()
-}, []);
+  // fetchCards()
+  setListings(Home_Page_Data)
 
+}, [Home_Page_Data]);
 
 
 return (
@@ -109,9 +104,9 @@ return (
 
 {/* all cards in cards conatiner */}
    <div className="bodyContainer">
-      {Home_Page_Data.map((listing) => (
+      {listings.map((listing, i) => (
   
-      <div className="card" key={listing.id} >
+      <div className="card" key={i+1} >
           
            <div className="card-fav-button">❤</div>
            <img src={listing.image} alt={title} className="card-image" />
