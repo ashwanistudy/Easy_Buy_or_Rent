@@ -1,9 +1,10 @@
-import { FETCH_USER_DATA, ADD_USER_DATA, FETCH_HOME_PAGE_DATA } from "./action"
+import { FETCH_USER_DATA, ADD_USER_DATA, FETCH_HOME_PAGE_DATA, LOCAL_USER, LOCAL_USER_LOGOUT } from "./action"
 
 
 const initState={
     HomePageData:[],
-    UserData:[],    
+    UserData:[],
+    LocalUser:null  
 }
     
 export const Reducer=(state = initState , action)=>{
@@ -23,7 +24,18 @@ export const Reducer=(state = initState , action)=>{
                 ...state,
                 HomePageData:[...state.HomePageData, ...action.payload]
             }
+        case LOCAL_USER:
+            return {
+                ...state,
+                LocalUser:action.payload
+            }
+        case LOCAL_USER_LOGOUT:
+            return {
+                ...state,
+                LocalUser:null
+            }
         default:
             return state
     }
 }
+

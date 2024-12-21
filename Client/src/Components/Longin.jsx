@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { Local_User } from "../Redux/action"
 
 
 
 export const Login = () => {
     const LoginUserData = useSelector((state)=>state.UserData)
+    const dispatch = useDispatch()
     let navigate = useNavigate()
     let debounce
 
@@ -47,7 +49,7 @@ export const Login = () => {
         
         if(toto){
            alert("Login Successfull")
-           localStorage.setItem("localUser", JSON.stringify(obj))
+           dispatch(Local_User(obj))
            navigate('/')
         }else{
             alert("Login Error")

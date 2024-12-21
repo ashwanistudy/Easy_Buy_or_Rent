@@ -10,10 +10,12 @@ import { Login } from './Components/Longin';
 import { Signup } from './Components/Signup';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fetch_Home_Page_Data, Fetch_User_Data } from './Redux/action';
+import { UserBusiness } from './Components/User_Business';
 
 
 
 function App() {
+
   const [NFVisible, setNFvisible] = useState(true)
   const dispatch = useDispatch()
   
@@ -36,7 +38,7 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Signup' element={<Signup />} />
           <Route path='/About us' element={<AboutUs />} />
-
+          <Route path='/businessList' element={<UserBusiness/>} />
         </Routes>
       </Router>
       {NFVisible ? <Footer1 /> : ""}

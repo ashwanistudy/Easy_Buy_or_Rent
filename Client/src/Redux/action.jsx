@@ -2,8 +2,8 @@ import axios from 'axios'
 export const FETCH_HOME_PAGE_DATA = "FETCH_HOME_PAGE_DATA"
 export const FETCH_USER_DATA = "FETCH_USER_DATA"
 export const ADD_USER_DATA = "ADD_USER_DATA"
-
-
+export const LOCAL_USER="LOCAL_USER"
+export const LOCAL_USER_LOGOUT = "LOCAL_USER_LOGOUT"
 
 
 export const Fetch_Home_Page_Data=()=>{
@@ -37,4 +37,17 @@ export const Add_User_Data =(payload)=>{
     }
 }
 
+export const Local_User=(payload)=>{
+    return {
+        type:LOCAL_USER,
+        payload
+    }
+}
 
+export const Local_User_Logout=()=>{
+    return {
+        type:LOCAL_USER_LOGOUT,
+        payload:null
+    }
+
+}
