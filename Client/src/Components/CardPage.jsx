@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import '../MyCard/Card.css';
 import { useSelector } from 'react-redux';
-
 
 
 function CardPage({ title, beds, baths, bedrooms }) {
@@ -148,8 +146,6 @@ return (
          
         </div>
       )}
-
-
 </>
 );
 }
