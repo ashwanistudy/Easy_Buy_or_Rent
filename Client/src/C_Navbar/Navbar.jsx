@@ -46,9 +46,9 @@ function Navbar() {
 
                          
                           localUser.isBusinessOwner && (<><div className="Link-points"><Link to='/businessList' >Your Business</Link></div> </>) 
-      
-                         
-                          : <div className="Link-points"><Link to='' >Your Business🔒</Link></div>
+       
+                          
+                          : <div className="Link-points"><Link>Your Business🔒</Link></div>
                     }
 
 
