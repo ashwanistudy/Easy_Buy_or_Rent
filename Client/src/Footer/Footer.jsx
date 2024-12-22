@@ -17,9 +17,9 @@ export default function Footer(){
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/">Search Properties</a></li>
-          <li><a href="/">Contact Us</a></li>
-          <li><a href="/">About Us</a></li>
-          <li><a href="/">Terms and Conditions</a></li>
+          <li><a href="/UserFeedback">Feedback</a></li>
+          <li><a href="/about us">About Us</a></li>
+          <li><a href="/Help">Help</a></li>
         </ul>
       </div>
 
@@ -39,7 +39,7 @@ export default function Footer(){
       </div>
 
     </div>
-    <div className="main2-footer">
+    <div className="main2-footer" style={{color:"grey"}}>
       &copy; 2024 Real Estate App | All Rights Reserved
     </div>    
     </div>
