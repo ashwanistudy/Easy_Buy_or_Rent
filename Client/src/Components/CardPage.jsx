@@ -97,7 +97,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
    <div className="filtering">
          
-         <select value={sortOrder} onChange={handleSortOrderChange}>
+         <select value={sortOrder} onChange={handleSortOrderChange} style={{height:"2.5rem"}}>
            <option value="all">Sort By Rating</option>
            <option value="asc">Low to High</option>
            <option value="desc">High to low</option>

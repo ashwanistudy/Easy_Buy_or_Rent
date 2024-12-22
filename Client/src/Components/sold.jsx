@@ -88,16 +88,16 @@ function Sold() {
   return (
     <div className="App">
       <h1>ADD YOUR PROPERTY</h1>
-      <button className="btn" onClick={openPopup}>ADD PROPERTY</button>
+      <button className="btn" onClick={openPopup} >ADD PROPERTY</button>
 
       {isPopupOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            <h2>Add Property</h2>
+        <div className="popup" >
+          <div className="popup-content" style={{ margin:"0rem", padding:"0"}}>
+            <h2 style={{margin:"0rem", padding:"0", marginTop:"5px"}}>Add Property</h2>
 
 
-            <form onSubmit={handleSubmit}>
-
+            <form onSubmit={handleSubmit} style={{ marginTop:"5px", maxWidth:"25rem"}}>
+            
               <label>
                 Property Name:
                 <input
@@ -107,11 +107,13 @@ function Sold() {
                   onChange={handleInputChange}
                   placeholder="Enter Property Name"
                   required
+                  style={{padding:"5px", margin:"0", fontSize:"14px"}}
                 />
               </label>
               <label>
                 Address :
                 <input
+                style={{padding:"5px", margin:"0", fontSize:"14px"}}
                   type="text"
                   name="address"
                   value={postdata.address}
@@ -123,6 +125,7 @@ function Sold() {
               <label>
                 Location:
                 <input
+                style={{padding:"5px", margin:"0", fontSize:"14px"}}
                   type="text"
                   name="location"
                   value={postdata.location}
@@ -135,6 +138,7 @@ function Sold() {
               <label>
                 Price (in Rs):
                 <input
+                style={{padding:"5px", margin:"0", fontSize:"14px"}}
                   type="number"
                   name="price"
                   value={postdata.price}
@@ -147,6 +151,7 @@ function Sold() {
               <label>
                 message:
                 <input
+                style={{padding:"5px", margin:"0", fontSize:"14px"}}
                   type="text"
                   name="message"
                   value={postdata.message}
@@ -162,6 +167,8 @@ function Sold() {
                 <button type="submit" className="submit-btn">Submit</button>
                 <button type="button" className="close-btn" onClick={closePopup}>Close</button>
               </div>
+
+            
             </form>
           </div>
         </div>
