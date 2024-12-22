@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './C_Navbar/Navbar'
 import { AddEmp } from './Components/AddEmp';
 import { UserFeedback } from './Components/UserFeedback';
-import Footer1 from './footer1/Footer1';
+import Footer from './Footer/Footer';
 import { useEffect, useState } from 'react';
 import CardPage from './Components/CardPage';
 import AboutUs from './Components/AboutUs';
@@ -41,7 +41,7 @@ function App() {
           <Route path='/businessList' element={<UserBusiness/>} />
         </Routes>
       </Router>
-      {NFVisible ? <Footer1 /> : ""}
+      {NFVisible ? <Footer/> : ""}
 
 
     </>
