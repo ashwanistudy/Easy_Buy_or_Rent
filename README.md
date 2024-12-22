@@ -2,7 +2,7 @@
 <h2>Tech Stack ----> Node, React, Redux, Firebase, Express </h2>
 <h2>Node version ----> 22.12.0</h2>
 <h2>React version ----> 18.3.1</h2>
-
+<h2>Deployed link -----> https://sweet-home-real-state.netlify.app/</h2>
 <br/>
 <br/>
 
