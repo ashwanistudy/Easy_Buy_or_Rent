@@ -6,14 +6,31 @@ function CardPage({ title, beds, baths, bedrooms }) {
   const Home_Page_Data = useSelector((state) => state.HomePageData);
 
   const [listings, setListings] = useState([]);
+  const [displayedListings, setDisplayedListings] = useState([]);
+  const [currentBatch, setCurrentBatch] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState('all'); 
+
+
   const platformFees = 5000;
+  const show = 12;
+
+  const handleLoadMore = () => {
+    const nextBatch = listings.slice(
+      0,
+      show * (currentBatch +1)
+    );
+    setDisplayedListings(nextBatch);
+    setCurrentBatch(currentBatch+1);
+  };
+
+
 
   // Fetching data and setting it to state
   useEffect(() => {
     setListings(Home_Page_Data);
+    setDisplayedListings(Home_Page_Data.slice(0, show));
   }, [Home_Page_Data]);
 
   // Sort function to order by rating
@@ -97,7 +114,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
    <div className="filtering">
          
-         <select value={sortOrder} onChange={handleSortOrderChange} style={{height:"2.5rem"}}>
+         <select value={sortOrder} onChange={handleSortOrderChange}>
            <option value="all">Sort By Rating</option>
            <option value="asc">Low to High</option>
            <option value="desc">High to low</option>
@@ -130,7 +147,9 @@ function CardPage({ title, beds, baths, bedrooms }) {
     
       {/* All cards in the cards container */}
       <div className="bodyContainer">
-        {listings.map((listing, i) => (
+        
+        {displayedListings.map((listing, i) => (
+          
           <div className="card" key={i + 1}>
             <div className="card-fav-button">❤</div>
             <img src={listing.image} alt={title} className="card-image" />
@@ -151,13 +170,20 @@ function CardPage({ title, beds, baths, bedrooms }) {
                 <div>{listing.bedrooms || bedrooms} Bedroom</div>
               </div>
               <div className="profileSide">
-                <button onClick={() => viewAllDetails(listing)}>View Details</button>
+              <button onClick={() => viewAllDetails(listing)} id='details'> View Details</button>
                
               </div>
             </div>
           </div>
         ))}
+        
+       
       </div>
+
+<div className='showdata'>
+      <button onClick={handleLoadMore}>Show More ...</button>
+      </div>
+
 
       {isPopupOpen && selectedCard && (
         <div className="popup-overlay" onClick={closePopup}>

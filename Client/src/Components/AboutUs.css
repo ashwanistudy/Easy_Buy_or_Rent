@@ -10,19 +10,26 @@
 }
 
 #img1{
-  height:240px;
-  width: 400px;
+  height:18rem;
+  width: 450px;
   border-radius: 30px;
+}
+#hero{
+  /* background-color: red; */
+  height: 13rem;
+
 }
 
 #flex1{
   display: flex;
-  gap:70px;
+  gap:60px;
+  /* background-color: red; */
 }
 
 #flex2{
   display: flex;
   gap: 50px;
+  margin-top: 20px;
 }
 #img2{
   height:280px;
@@ -30,8 +37,15 @@
   border-radius: 30px;
 }
 
-#h2{
+#about{
+  /* background-color: red; */
+  height: 13rem;
+  border-radius: 30px;
+}
+
+#h22{
   color: white;
+  
 }
 
 /* Hero Section */
@@ -53,6 +67,7 @@
 }
 .hero-title{
   color: white;
+  font-size: 35px;
 
 }
 
@@ -90,7 +105,7 @@
   border-radius: 14px;
   color: white;
   width:100%;
-  /* margin-left:25%; */
+  /* margin-top:25px; */
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -115,10 +130,14 @@
   
 p{
   color: white;
+  margin-top: 20px;
 }
 }
 .card2{
   background-color:#1F509A;
+  p{
+  color: white;
+  }
 }
 
 .feature-card {
@@ -144,6 +163,7 @@ p{
 .about-team {
   text-align: center;
   margin-bottom: 50px;
+
 }
 
 .team-grid {
@@ -186,6 +206,10 @@ p{
   color: white;
   padding: 50px 20px;
   border-radius: 10px;
+
+  p{
+    color: white;
+  }
 }
 
 .cta-title {
