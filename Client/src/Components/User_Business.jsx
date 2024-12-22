@@ -1,19 +1,60 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useEffect ,useState} from "react";
 import Sold from "./sold";
+import {Remove_Business} from '../Redux/action'
+import {useNavigate} from 'react-router-dom'
+
 
 export const UserBusiness=()=>{
 
     const UserBusinessData = useSelector((state)=>state.LocalUser)
-    
-
     const [isTnCVisible, setTnCVisible] = useState(false);
+    const navigate = useNavigate()
+
+    let [localData, setlocalData] = useState()
+    const dispatch = useDispatch()
+    
+    useEffect(()=>{
+        if(UserBusinessData){
+            setlocalData(UserBusinessData.business)
+        }
+    },[UserBusinessData])
+
+    
+    function handleRemove(ele){
+        let newdata = UserBusinessData.business.filter((e)=>{
+            return ele.businessId !== e.businessId
+        })
+        UserBusinessData.business=newdata
+        setlocalData(UserBusinessData.business)
+        dispatch(Remove_Business(UserBusinessData))
+    }
+
 
     return (
     <>
  <div id="Container">
-<h1>Welcome  to Your Business Mr.{UserBusinessData.name} </h1>
+        {
+            UserBusinessData ?(<h1>Welcome  to Your Business Mr.{UserBusinessData.name} </h1>):""
+        }
 </div>
+
+{
+            localData ?<>
+            {localData.map((ele, i)=>{
+                return (
+                    <div key={i+1}>
+                        <h2>{ele.propertyName}, {ele.price}</h2>
+                        <h2><button onClick={()=>handleRemove(ele)}>Remove</button></h2>
+                    </div>
+                )
+            })}
+            </>
+            :
+            ""
+        }
+
+
 <div className="Block2" >
 <img src="https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg"  style={{padding:50}}/>
 

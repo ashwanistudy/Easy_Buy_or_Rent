@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import '../Styling/sold.css';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { Add_Business } from '../Redux/action';
 
 function Sold() {
+  const localUser = useSelector((state) => state.LocalUser)
+  const dispatch = useDispatch()
   // State for controlling the popup
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -12,6 +16,7 @@ function Sold() {
     address:"" ,
     location: "",
     price: "",
+    message:"",
     // image: null,
   });
  
@@ -44,6 +49,7 @@ function Sold() {
       address:"",
       location: "",
       price: "",
+      message:"",
       // image: null,
     });
   };
@@ -67,7 +73,8 @@ function Sold() {
          postdata,
       );
 
-      console.log(response.data);
+      postdata.businessId=Math.ceil(Math.random() * 1000 + 1)
+      dispatch(Add_Business(postdata, localUser))
       alert("Property added successfully!");
 
       resetForm()
@@ -133,6 +140,18 @@ function Sold() {
                   value={postdata.price}
                   onChange={handleInputChange}
                   placeholder="Enter Price"
+                  required
+                />
+              </label>
+
+              <label>
+                message:
+                <input
+                  type="text"
+                  name="message"
+                  value={postdata.message}
+                  onChange={handleInputChange}
+                  placeholder="message"
                   required
                 />
               </label>

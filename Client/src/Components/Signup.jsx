@@ -64,13 +64,17 @@ export const Signup = () => {
                     name: val[1].value,
                     email: val[2].value,
                     password: val[3].value,
+                    userId
+                }
+                let businessId = Math.ceil(Math.random() * 1000 + 1)
+                obj.business=[{
                     propertyName: val[4].value,
                     location: val[5].value,
                     address: val[6].value,
                     price: val[7].value,
                     message: val[8].value,
-                    userId
-                }
+                    businessId
+                }]
             }
             axios.put(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users/${userId}.json`, obj)
                 .then((res) => {
