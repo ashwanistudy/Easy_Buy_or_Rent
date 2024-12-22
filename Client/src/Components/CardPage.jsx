@@ -44,6 +44,13 @@ const fetchCards = async () => {
   }
 };
 
+
+
+
+
+
+
+
 // searching function 
 
 function HandleSearch(e) {
@@ -110,6 +117,9 @@ return (
   <div className='search'>
     {/* <p>Looking for the perfect home? Use our advanced search tool to filter listings by location, price, size, and more</p> */}
     <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-29862895/original/025cc9a1-7746-4cd5-9dde-d50803c73b1d.jpeg?im_w=720&im_format=avif" alt="" />
+  
+  
+  
   <input id='srch'
   placeholder='Search Your Dream house here             🔍'
   onInput={HandleSearch}

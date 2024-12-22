@@ -35,6 +35,9 @@ function Navbar() {
                 <Link to='/UserFeedback'>Feedback</Link>
               </div>
               <div className="Link-points">
+                <Link to='/Help'>Help</Link>
+              </div>
+              <div className="Link-points">
                 <Link to='/about us'>About us</Link>
               </div>
                {

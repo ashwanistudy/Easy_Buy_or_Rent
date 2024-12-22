@@ -11,7 +11,7 @@ import { Signup } from './Components/Signup';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fetch_Home_Page_Data, Fetch_User_Data } from './Redux/action';
 import { UserBusiness } from './Components/User_Business';
-
+import Help from './Components/help.JSX';
 
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
           <Route path='/Signup' element={<Signup />} />
           <Route path='/About us' element={<AboutUs />} />
           <Route path='/businessList' element={<UserBusiness/>} />
+          <Route path='/Help' element={<Help/>} />
         </Routes>
       </Router>
       {NFVisible ? <Footer/> : ""}
