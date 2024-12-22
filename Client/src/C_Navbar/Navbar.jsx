@@ -41,14 +41,14 @@ function Navbar() {
                 <Link to='/about us'>About us</Link>
               </div>
                {
-                        localUser ? <div className="Link-points">
+                        localUser ? 
 
 
-                         {
-                          localUser.isBusinessOwner && (<><Link to='/businessList' >Your Business</Link> </>) 
+                         
+                          localUser.isBusinessOwner && (<><div className="Link-points"><Link to='/businessList' >Your Business</Link></div> </>) 
       
-                         }
-                         </div> : ""
+                         
+                          : <div className="Link-points"><Link to='' >Your Business🔒</Link></div>
                     }
 
 
