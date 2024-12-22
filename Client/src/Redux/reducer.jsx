@@ -6,7 +6,7 @@ const initState={
     UserData:[],
     LocalUser:null  
 }
-    
+
 export const Reducer=(state = initState , action)=>{
     switch(action.type){
         case FETCH_USER_DATA:

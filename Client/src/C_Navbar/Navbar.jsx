@@ -28,32 +28,38 @@ function Navbar() {
               <div className="Link-points">
                 <Link to='/' >Home</Link>
               </div>
-              <div className="Link-points">
+              {/* <div className="Link-points">
                 <Link to='/AddEmp'  >Start Business</Link>
-              </div>
+              </div> */}
               <div className="Link-points">
                 <Link to='/UserFeedback'>Feedback</Link>
               </div>
               <div className="Link-points">
                 <Link to='/about us'>About us</Link>
               </div>
+               {
+                        localUser ? <div className="Link-points">
+
+
+                         {
+                          localUser.isBusinessOwner && (<><Link to='/businessList' >Your Business</Link> </>) 
+      
+                         }
+                         </div> : ""
+                    }
+
+
+
 
             </nav>
             <div className="Loginlogo" >
 
 
               {
-                localUser ? <>
+                localUser ? 
+                  <Link to={'/'} onClick={handleLogout} >Log Out 😊 </Link>
 
-                  {
-
-                    localUser.isBusinessOwner && (<><Link to='/businessList' >Your Business</Link><br /><br /></>) 
-
-                  }
-
-                  <Link to={'/'} onClick={handleLogout} >LogOut 😊 </Link>
-
-                </>
+                
                   : <Link to='/Login' >Login 😊 </Link>
               }
 

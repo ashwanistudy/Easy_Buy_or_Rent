@@ -260,23 +260,14 @@ font-weight: bold;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
 
   }
   
-  /* .popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-   */
+
+  
   .popup-close-button {
    position: absolute;
     top: 10px;
@@ -287,3 +278,147 @@ font-weight: bold;
     cursor: pointer;
   }
   
+
+  /* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+
+  .popup-content {
+    background: #c3eff0;
+    border-radius: 10px;  
+    padding: 20px;
+   width: 500px;
+   height: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    
+ 
+  }
+  
+  .popup-content2 {
+    background: #c3eff0;
+    border-radius: 10px;
+    padding: 20px;
+   width: 500px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    /* position: relative; */
+  }
+
+  .popup-content2 p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+    padding: 5px;
+  }
+  .popup-content2 p b {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #000000;
+  }
+  
+  /* close button */
+  .popup-close-button {
+    /* position: absolute; */   
+    top: 10 px;  
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff0000;
+  }
+  
+  .popup-close-button:hover {
+    color: #190550;
+  }
+  
+  /* Popup Image */
+  .popup-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  
+  /* Popup Text Details */
+  .popup-content h2 {
+    font-size: 24px;
+    color: #333;
+  }
+/*   
+  .popup-content p {
+    font-size: 16px;
+    color: #555;
+  }
+   */
+  .popup-content strong {
+    color: #000;
+  }
+  
+
+  .popup-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  .popup-table th{
+    color: rgb(17, 17, 115);
+  }
+  .popup-table th, td {
+    border: 1px solid #c7bfde;
+    padding: 8px;
+  }
+  
+  .popup-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+ 
+  
+  .popup-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .popup-content2 button{
+    width: 100%;  
+    padding: 8px;
+    font-size: 12px;
+    border: none;
+    
+    background-color:rgb(65, 37, 176);
+    color: rgb(179, 197, 197);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #discount {
+    color: rgb(179, 171, 171);
+   display: flex;
+   background-color: #000000;
+   justify-content: space-around;
+   align-items: center;
+  }   
+
+  #edittext{
+  font-size: 20px;
+  padding: 10px;
+  font-family: "Baskerville Old Face";
+  }

@@ -146,7 +146,7 @@ input:focus {
     font-size: 110px;
     text-align: center;
   }
-  span1{
+  p{
     color: rgb(67, 65, 65);
     font-size: 16px   ;
     padding-bottom: 100px;
@@ -154,17 +154,36 @@ input:focus {
   .tcbut{
      background-color: rgb(120, 109, 109)  ;
      border-radius: 800px;
+     color: white;
+     opacity: 0.8;
   }
 
   .tcbut:hover{
-  background-color: black;
+  background-color: rgb(226, 197, 197);
+  color: black;
   }
 
   .termtext{
-    padding: 200px;
+  /* border: 1px solid black; */
+   width: 70%;
+   padding: 50px  ;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
 
   .termsAndConditions{
     text-align: center;
+  }
+
+  #business{
+       padding: 5px;
+  }
+
+  h4{
+    color:  rgb(86, 83, 83);
+    font-size: 14px;
+  }
+  li{
+    color:  rgb(86, 83, 83);
+    font-size: 14px;
   }

@@ -75,10 +75,10 @@ body{
   transition: transform 0.9s ease, box-shadow 0.3s ease; 
   }
 
-
+  
   .Link-points:hover{
     background-color: rgb(32, 29, 119);
-    transform: scale(1.2);
+    transform: scale(0.9);
   }
 
 .watermark-div img{

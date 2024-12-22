@@ -14,7 +14,7 @@ function Sold() {
     price: "",
     // image: null,
   });
-
+ 
   // Open the popup
   const openPopup = () => setIsPopupOpen(true);
 
