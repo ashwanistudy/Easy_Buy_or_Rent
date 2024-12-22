@@ -42,11 +42,8 @@ body {
   }
   
   .popup-content {
-    padding: 10px;
-    margin: 50px;
-    width: 100%;
+    width: 70%;
     background-color: rgb(252, 245, 245);
-    /* max-width: 400px; */
     border-radius: 20px;
     text-align: left;
   }
@@ -66,7 +63,7 @@ body {
   input[type="text"],
   input[type="number"],
   input[type="date"] {
-    width: 100%;
+    width: 90%;
     padding:5px;
     margin-top: 5px;
     margin-bottom: 25px;

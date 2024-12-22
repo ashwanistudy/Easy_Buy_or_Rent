@@ -130,7 +130,7 @@ export const Signup = () => {
 
 
 
-            <button>Submit</button><br />
+            <button type="submit">Submit</button><br />
             <span>Already have an account</span> <a style={{ color: 'blue' }}><button type="button" onClick={() => navigate('/Login')}>Login</button></a>
         </form>
 

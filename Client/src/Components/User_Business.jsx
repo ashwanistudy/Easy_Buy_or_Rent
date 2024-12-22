@@ -41,14 +41,25 @@ export const UserBusiness=()=>{
 
 {
             localData ?<>
+            <div className="bodycontainer">
             {localData.map((ele, i)=>{
                 return (
-                    <div key={i+1}>
-                        <h2>{ele.propertyName}, {ele.price}</h2>
-                        <h2><button onClick={()=>handleRemove(ele)}>Remove</button></h2>
+                    <>
+                    
+                    <div id="usercard" key={i+1}>
+                    <div id="for_img"></div>
+                        <p><strong> Property Name : </strong>{ele.propertyName}<br></br>
+                        <strong> address  : </strong> {ele.address}<br></br>
+                        <strong> location  : </strong> {ele.location}<br></br>
+                        <strong> price  : </strong>{ele.price}<br></br>
+                        <br></br>
+                        <button onClick={()=>handleRemove(ele)} id="remove">Remove</button></p>
                     </div>
+                    </>
+                    
                 )
             })}
+            </div>
             </>
             :
             ""
