@@ -7,30 +7,31 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
   const [listings, setListings] = useState([]);
   const [displayedListings, setDisplayedListings] = useState([]);
-  const [currentBatch, setCurrentBatch] = useState(1);
+  // const [currentBatch, setCurrentBatch] = useState(1);
   const [selectedCard, setSelectedCard] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState('all'); 
 
 
   const platformFees = 5000;
-  const show = 12;
+  // const show = 12;
 
-  const handleLoadMore = () => {
-    const nextBatch = listings.slice(
-      0,
-      show * (currentBatch +1)
-    );
-    setDisplayedListings(nextBatch);
-    setCurrentBatch(currentBatch+1);
-  };
+  // const handleLoadMore = () => {
+  //   const nextBatch = listings.slice(
+  //     0,
+  //     show * (currentBatch +1)
+  //   );
+  //   setDisplayedListings(nextBatch);
+  //   setCurrentBatch(currentBatch+1);
+  // };
 
 
 
   // Fetching data and setting it to state
   useEffect(() => {
     setListings(Home_Page_Data);
-    setDisplayedListings(Home_Page_Data.slice(0, show));
+    console.log(Home_Page_Data)
+    // setDisplayedListings(Home_Page_Data.slice(0, show));
   }, [Home_Page_Data]);
 
   // Sort function to order by rating
@@ -51,6 +52,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
   // Handle the sorting order change
   const handleSortOrderChange = (e) => {
     const selectedOrder = e.target.value;
+    
     setSortOrder(selectedOrder);
     sortListingsByRating(selectedOrder);
   };
@@ -114,7 +116,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
    <div className="filtering">
          
-         <select value={sortOrder} onChange={handleSortOrderChange}>
+         <select value={sortOrder} onChange={handleSortOrderChange} style={{height:"2.4rem", borderRadius:"5px", marginTop:"-25px"}}>
            <option value="all">Sort By Rating</option>
            <option value="asc">Low to High</option>
            <option value="desc">High to low</option>
@@ -122,7 +124,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
          <input id='srch'
   placeholder='Search Your Dream house here             🔍'
-  onInput={HandleSearch}
+  onInput={HandleSearch} style={{height:"1rem",marginTop:"-25px"}}
   />
        
        </div>
@@ -148,7 +150,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
       {/* All cards in the cards container */}
       <div className="bodyContainer">
         
-        {displayedListings.map((listing, i) => (
+        {listings.map((listing, i) => (
           
           <div className="card" key={i + 1}>
             <div className="card-fav-button">❤</div>
@@ -181,7 +183,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
       </div>
 
 <div className='showdata'>
-      <button onClick={handleLoadMore}>Show More ...</button>
+      {/* <button onClick={handleLoadMore}>Show More ...</button> */}
       </div>
 
 
