@@ -147,6 +147,7 @@ function CardPage({ title, beds, baths, bedrooms }) {
 
 
     
+    
       {/* All cards in the cards container */}
       <div className="bodyContainer">
         
