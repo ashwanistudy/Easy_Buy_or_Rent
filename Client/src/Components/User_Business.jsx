@@ -1,13 +1,15 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect ,useState} from "react";
 import Sold from "./sold";
-import {Remove_Business} from '../Redux/action'
+import {Remove_Business, Remove_Home_data} from '../Redux/action'
 import {useNavigate} from 'react-router-dom'
+import axios from "axios";
 
 
 export const UserBusiness=()=>{
 
     const UserBusinessData = useSelector((state)=>state.LocalUser)
+    const HomeData = useSelector((state)=>state.HomePageData)
     const [isTnCVisible, setTnCVisible] = useState(false);
     const navigate = useNavigate()
 
@@ -21,13 +23,19 @@ export const UserBusiness=()=>{
     },[UserBusinessData])
 
     
-    function handleRemove(ele){
+    async function handleRemove(ele){
         let newdata = UserBusinessData.business.filter((e)=>{
-            return ele.businessId !== e.businessId
+            return ele.id !== e.id
         })
         UserBusinessData.business=newdata
         setlocalData(UserBusinessData.business)
+        console.log(HomeData)
+        let toto = HomeData.filter((e)=>{
+            return e.id !== ele.id
+        })
+        dispatch(Remove_Home_data(toto))
         dispatch(Remove_Business(UserBusinessData))
+        axios.delete(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Home/${ele.id}.json`)
     }
 
 
@@ -44,18 +52,22 @@ export const UserBusiness=()=>{
             <div className="bodycontainer">
             {localData.map((ele, i)=>{
                 return (
-                    <>
+                 
                     
                     <div id="usercard" key={i+1}>
-                    <div id="for_img"></div>
-                        <p><strong> Property Name : </strong>{ele.propertyName}<br></br>
-                        <strong> address  : </strong> {ele.address}<br></br>
+                    <div id="for_img" >
+                        <img style={{width:"100%" , height:"100%"}} src={ele.image} alt="" />
+                    </div>
+                        <p>
+                            <strong> Property Name : </strong>{ele.name}<br></br>
                         <strong> location  : </strong> {ele.location}<br></br>
+                                            
                         <strong> price  : </strong>{ele.price}<br></br>
+                        <strong> rating  : </strong> {ele.rating}<br></br>
                         <br></br>
                         <button onClick={()=>handleRemove(ele)} id="remove">Remove</button></p>
                     </div>
-                    </>
+               
                     
                 )
             })}
@@ -189,4 +201,3 @@ export const UserBusiness=()=>{
 )
 
 }
-

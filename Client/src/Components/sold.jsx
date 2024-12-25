@@ -3,22 +3,27 @@ import '../Styling/sold.css';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { Add_Business } from '../Redux/action';
+import { useNavigate } from 'react-router-dom';
 
 function Sold() {
-  const localUser = useSelector((state) => state.LocalUser)
+  let localUser = useSelector((state) => state.LocalUser)
   const dispatch = useDispatch()
+  const navigate= useNavigate()
   // State for controlling the popup
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   // State for form data
-  const [postdata, setpostData] = useState({
-    propertyName: "",
-    address:"" ,
-    location: "",
-    price: "",
-    message:"",
-    // image: null,
-  });
+  // const [postdata, setpostData] = useState({
+    
+  //   image: null,
+  //   location: "",
+  //   name: "",
+  //   address:"" ,
+    
+  //   price: "",
+  //   message:"",
+    
+  // });
  
   // Open the popup
   const openPopup = () => setIsPopupOpen(true);
@@ -26,15 +31,14 @@ function Sold() {
   // Close the popup
   const closePopup = () => {
     setIsPopupOpen(false);
-    resetForm();
   };
 
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setpostData({ ...postdata, [name]: value });
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setpostData({ ...postdata, [name]: value });
 
-  };
+  // };
 
 
   // const handleFileChange = (e) => {
@@ -43,42 +47,43 @@ function Sold() {
   // };
 
 
-  const resetForm = () => {
-    setpostData({
-      propertyName: "",
-      address:"",
-      location: "",
-      price: "",
-      message:"",
-      // image: null,
-    });
-  };
+  // const resetForm = () => {
+  //   setpostData({
+  //     propertyName: "",
+  //     address:"",
+  //     location: "",
+  //     price: "",
+  //     message:"",
+  //     // image: null,
+  //   });
+  // };
 
   // Handle add post submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const userId= Math.ceil(Math.random() * 1000 + 1)
+    const obj ={
+      id:userId,
+      name:e.target[0].value,
+      location:e.target[1].value,
+      image:e.target[2].value,
+      price:parseInt(e.target[3].value),
+      strike_price:parseInt(e.target[3].value) + parseInt(e.target[3].value) * .15,
+      rating:(Math.random() * (5-3) + 3).toFixed(1),
+      availableFor:e.target[4].value
+    }
     try {
-    
-  //     const formData = new FormData();
-  //     formData.append('propertyName', postdata.propertyName);
-  //     formData.append('location', postdata.location);
-  //     formData.append('price', postdata.price);
-  //     if (postdata.image) {
-  //       formData.append('image', postdata.image);
-  //     }
-  // console.log(formData)
-      const response = await axios.post(
-         "https://shre-5279e-default-rtdb.firebaseio.com/SHRE.json",
-         postdata,
+      await axios.put(
+         `https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Home/${userId}.json`,
+         obj,
       );
-
-      postdata.businessId=Math.ceil(Math.random() * 1000 + 1)
-      dispatch(Add_Business(postdata, localUser))
+      localUser.business.push(obj)
+      dispatch(Add_Business(obj, localUser))
       alert("Property added successfully!");
 
-      resetForm()
+      // resetForm()
       setIsPopupOpen(false);
+      navigate('/')
     } catch (error) {
       console.error("Error submitting the form:", error);
       alert("getting error");
@@ -102,35 +107,24 @@ function Sold() {
                 Property Name:
                 <input
                   type="text"
-                  name="propertyName"
-                  value={postdata.propertyName}
-                  onChange={handleInputChange}
-                  placeholder="Enter Property Name"
+                  placeholder="Villa, Flat House"
                   required
                   style={{padding:"5px", margin:"0", fontSize:"14px"}}
                 />
               </label>
               <label>
-                Address :
+              Location :
                 <input
                 style={{padding:"5px", margin:"0", fontSize:"14px"}}
-                  type="text"
-                  name="address"
-                  value={postdata.address}
-                  onChange={handleInputChange}
-                  placeholder="Enter Property Name"
+                  placeholder="City"
                   required
                 />
               </label>
               <label>
-                Location:
+                image:
                 <input
                 style={{padding:"5px", margin:"0", fontSize:"14px"}}
-                  type="text"
-                  name="location"
-                  value={postdata.location}
-                  onChange={handleInputChange}
-                  placeholder="Enter Property Location"
+                  placeholder="Image Link only"
                   required
                 />
               </label>
@@ -139,26 +133,18 @@ function Sold() {
                 Price (in Rs):
                 <input
                 style={{padding:"5px", margin:"0", fontSize:"14px"}}
-                  type="number"
-                  name="price"
-                  value={postdata.price}
-                  onChange={handleInputChange}
                   placeholder="Enter Price"
                   required
                 />
               </label>
 
-              <label>
-                message:
-                <input
-                style={{padding:"5px", margin:"0", fontSize:"14px"}}
-                  type="text"
-                  name="message"
-                  value={postdata.message}
-                  onChange={handleInputChange}
-                  placeholder="message"
-                  required
-                />
+
+              <label > 
+                Available For: 
+              <select required style={{padding:"5px", margin:"0", fontSize:"14px" , width:"6rem", borderRadius:"5px"}}>
+                <option value="Sell">Sell</option>
+                <option value="Rent">Rent</option>
+              </select>
               </label>
 
               

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Add_User_Data } from "../Redux/action"
+import { Add_User_Data, Normal_User } from "../Redux/action"
 
 export const Signup = () => {
     const SignupUserData = useSelector((state)=>state.UserData)
@@ -31,7 +31,6 @@ export const Signup = () => {
 
     async function fun(e) {
         let toto = true
-        // let res = await axios.get(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users.json`)
 
         if (SignupUserData.length == 0) {
             toto = true
@@ -68,20 +67,32 @@ export const Signup = () => {
                 }
                 let businessId = Math.ceil(Math.random() * 1000 + 1)
                 obj.business=[{
-                    propertyName: val[4].value,
+                    name: val[4].value,
                     location: val[5].value,
-                    address: val[6].value,
-                    price: val[7].value,
-                    message: val[8].value,
-                    businessId
+                    image: val[6].value,
+                    price: parseInt(val[7].value),
+                    id:businessId,
+                    strike_price:parseInt(e.target[7].value) + parseInt(e.target[7].value) * .15,
+                    rating:parseInt(Math.random() * (5-3) + 3).toFixed(1),
+                    availableFor:e.target[8].value
                 }]
+                axios.put(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Home/${obj.business[0].id}.json`, obj.business[0])
+                
             }
             axios.put(`https://shre-e0b9b-default-rtdb.asia-southeast1.firebasedatabase.app/Users/${userId}.json`, obj)
                 .then((res) => {
                     alert("Sign Up Successfull")
-                    dispatch(Add_User_Data(obj))
+                    if(obj.isBusinessOwner){
+                        dispatch(Add_User_Data(obj))
+                    }else{
+                        dispatch(Normal_User(obj))
+                    }
+                    
+
                     navigate('/Login')
+                    // console.log(obj)
                 })
+            
         } 
         else {
             alert("User Already exist")
@@ -117,12 +128,17 @@ export const Signup = () => {
                         <input type="text" id="property" placeholder="villa, 2BHK, 3BHK, 1RK" required/>
                         <label htmlFor="location">Location:</label>
                         <input type="text" id="location" placeholder="U.P 201306" required/>
-                        <label htmlFor="address">Address:</label>
-                        <input type="text" id="address" placeholder="Noida sector 167" required/>
+                        <label htmlFor="address">image:</label>
+                        <input type="text" id="address" placeholder="link only" required/>
                         <label htmlFor="price">Price(INR):</label>
                         <input type="text" id="price" placeholder="2000102" required/>
-                        <label htmlFor="message">Message:</label>
-                        <input type="text" id="message" placeholder="Sale or Rent" required/>
+                        <label > 
+                Available For: 
+              <select required style={{padding:"5px", margin:"0", fontSize:"14px" , width:"6rem", borderRadius:"5px"}}>
+                <option value="Sell">Sell</option>
+                <option value="Rent">Rent</option>
+              </select>
+              </label>
                     </>)
             }
 

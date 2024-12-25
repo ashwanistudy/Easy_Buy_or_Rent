@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function CardPage({ title, beds, baths, bedrooms }) {
   const Home_Page_Data = useSelector((state) => state.HomePageData);
-
+  
   const [listings, setListings] = useState([]);
   const [displayedListings, setDisplayedListings] = useState([]);
   // const [currentBatch, setCurrentBatch] = useState(1);

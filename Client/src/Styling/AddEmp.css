@@ -197,7 +197,8 @@ input:focus {
   }
  
   #usercard { 
-    width: 400px;
+  width: 380px;
+  height: 450px;
   border: 1px solid #ccc;
   border-radius: 8px; 
   padding: 16px;
@@ -224,6 +225,6 @@ input:focus {
 
 #for_img{
   height: 300px;
-  width: 90%;
-  border: 1px solid red;
+  width: 100%;
+  border: 1px solid black;
 }

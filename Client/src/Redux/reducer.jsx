@@ -1,4 +1,4 @@
-import { FETCH_USER_DATA, ADD_USER_DATA, FETCH_HOME_PAGE_DATA, LOCAL_USER, LOCAL_USER_LOGOUT, ADD_BUSINESS, REMOVE_BUSINESS } from "./action"
+import { FETCH_USER_DATA, ADD_USER_DATA, FETCH_HOME_PAGE_DATA, LOCAL_USER, LOCAL_USER_LOGOUT, ADD_BUSINESS, REMOVE_BUSINESS, REMOVE_BUSINESS_FROM_HOME_PAGE, NORMAL_USER } from "./action"
 
 
 const initState={
@@ -17,7 +17,8 @@ export const Reducer=(state = initState , action)=>{
         case ADD_USER_DATA:
             return {
                 ...state,
-                UserData:[...state.UserData, action.payload]
+                UserData:[...state.UserData, action.payload],
+                HomePageData:[...state.HomePageData, action.payload.business[0]]
             }
         case FETCH_HOME_PAGE_DATA:
             return {
@@ -37,15 +38,23 @@ export const Reducer=(state = initState , action)=>{
         case ADD_BUSINESS:
             return {
                 ...state,
-                LocalUser:{
-                    ...state.LocalUser,
-                    business:[...state.LocalUser.business, action.payload]
-                }
+                LocalUser:action.toto,
+                HomePageData:[...state.HomePageData, action.obj]
             }
         case REMOVE_BUSINESS:
             return {
                 ...state,
                 LocalUser:action.payload
+            }
+        case REMOVE_BUSINESS_FROM_HOME_PAGE:
+            return {
+                ...state,
+                HomePageData:[...action.payload]
+            }
+        case NORMAL_USER:
+            return {
+                ...state,
+                UserData:[...state.UserData, action.payload]
             }
         default:
             return state
