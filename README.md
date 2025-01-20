@@ -48,7 +48,7 @@
 <img src="./ReadmeResource/feedback.png" alt="" />
 <br/>
 <br/>
-<h2>Hele Page</h2>
+<h2>Help Page</h2>
 <h4>Let Us know if you are facing any issue using this page</h4>
 <img src="./ReadmeResource/help.png" alt="" />
 <br/>
